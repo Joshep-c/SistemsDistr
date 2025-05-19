@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.remoting.rmi.RmiServiceExporter;
 
 @Configuration
-@ComponentScan("com.example.rmi")
+@ComponentScan("com.epis.rmi_spring")
 public class AppConfig {
 
     @Bean 
