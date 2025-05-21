@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.example.demo.grpc";
+option java_outer_classname = "GreetingProto";
+
+package greeting;
+
+// Define el servicio de saludo
+service GreetingService {
+  // Método simple para enviar un saludo y recibir una respuesta
+  rpc sayHello (HelloRequest) returns (HelloResponse) {}
+  
+  // Método para demostrar streaming del servidor
+  rpc sayHelloServerStream (HelloRequest) returns (stream HelloResponse) {}
+  
+  // Método para demostrar streaming del cliente
+  rpc sayHelloClientStream (stream HelloRequest) returns (HelloResponse) {}
+  
+  // Método para demostrar streaming bidireccional
+  rpc sayHelloBiDirectionalStream (stream HelloRequest) returns (stream HelloResponse) {}
+}
+
+// Mensaje de solicitud que contiene el nombre del usuario
+message HelloRequest {
+  string name = 1;
+}
+
+// Mensaje de respuesta que contiene el saludo
+message HelloResponse {
+  string greeting = 1;
+}
